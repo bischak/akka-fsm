@@ -32,8 +32,8 @@ object Datas {
 }
 
 
-class Turnstile extends FSM[States.State, Datas.StateData] {
-  startWith(States.Locked, Datas.StateData(0))
+class Turnstile extends FSM[State, StateData] {
+  startWith(Locked, StateData(0))
 
   private val PRICE = 5
 
@@ -59,7 +59,7 @@ class Turnstile extends FSM[States.State, Datas.StateData] {
 
   }
 
-  when(States.UnLocked) {
+  when(UnLocked) {
 
     case Event(Push, StateData(total)) =>
 

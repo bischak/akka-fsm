@@ -28,8 +28,8 @@ object Commands {
 
 }
 
-class Turnstile extends FSM[States.State, Option[Int]] {
-  startWith(States.Locked, None)
+class Turnstile extends FSM[State, Option[Int]] {
+  startWith(Locked, None)
 
   private val TIMEOUT = 5 seconds
 
@@ -115,6 +115,6 @@ object TurnstileTimeoutRejectMain extends App {
 
   pause()
 
-  println("...so no Locking by timeout!")
+  println("...so no Locking after timeout!")
 
 }

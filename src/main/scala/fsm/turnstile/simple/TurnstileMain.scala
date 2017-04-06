@@ -24,8 +24,8 @@ object Commands {
 
 }
 
-class Turnstile extends FSM[States.State, Option[Int]] {
-  startWith(States.Locked, None)
+class Turnstile extends FSM[State, Option[Int]] {
+  startWith(Locked, None)
 
   when(Locked) {
     case Event(Push, _) =>
@@ -39,7 +39,7 @@ class Turnstile extends FSM[States.State, Option[Int]] {
       goto(UnLocked)
   }
 
-  when(States.UnLocked) {
+  when(UnLocked) {
     case Event(Push, _) =>
       println("<Come in>")
 

@@ -26,8 +26,8 @@ object Commands {
 
 }
 
-class Turnstile extends FSM[States.State, Option[Int]] {
-  startWith(States.Locked, None)
+class Turnstile extends FSM[State, Option[Int]] {
+  startWith(Locked, None)
 
   private val TIMEOUT = 5 seconds
 
@@ -44,7 +44,7 @@ class Turnstile extends FSM[States.State, Option[Int]] {
 
   }
 
-  when(States.UnLocked) {
+  when(UnLocked) {
     case Event(Push, _) =>
       println("<Come in>")
 
