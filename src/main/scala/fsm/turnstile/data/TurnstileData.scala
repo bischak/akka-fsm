@@ -78,6 +78,12 @@ class Turnstile extends FSM[States.State, Datas.StateData] {
       stay() using StateData(money + total)
   }
 
+  onTransition {
+    case UnLocked -> Locked =>
+      println("<Transition UnLocked -> Locked>")
+    case _ =>
+  }
+
 
   initialize()
 
